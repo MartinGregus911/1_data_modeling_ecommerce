@@ -23,24 +23,12 @@ SELECT DISTINCT
 FROM staging_products;
 
 -- Create dim_region table
--- SQLite does not support ROW_NUMBER(), so create without region_id for now
 CREATE TABLE dim_region AS
 SELECT DISTINCT
     city,
     region,
     country
 FROM staging_customers;
-
--- To add region_id as PRIMARY KEY AUTOINCREMENT later, you can do:
--- CREATE TABLE dim_region_new (
---   region_id INTEGER PRIMARY KEY AUTOINCREMENT,
---   city TEXT,
---   region TEXT,
---   country TEXT
--- );
--- INSERT INTO dim_region_new(city, region, country) SELECT DISTINCT city, region, country FROM staging_customers;
--- DROP TABLE dim_region;
--- ALTER TABLE dim_region_new RENAME TO dim_region;
 
 -- Create dim_customer table, joining on city, region, country to get region_id
 CREATE TABLE dim_customer AS
