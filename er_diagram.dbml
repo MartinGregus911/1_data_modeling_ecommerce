@@ -1,0 +1,49 @@
+Table products {
+  product_id int [pk]
+  name varchar
+  description text
+  price decimal
+  availability boolean
+  category_id int [ref: > categories.category_id]
+}
+
+Table categories {
+  category_id int [pk]
+  name varchar
+  parent_category_id int [ref: > categories.category_id, null]
+}
+
+Table customers {
+  customer_id int [pk]
+  full_name varchar
+  email varchar
+  street varchar
+  city varchar
+  region varchar
+  postal_code varchar
+  country varchar
+  registration_date date
+}
+
+Table orders {
+  order_id int [pk]
+  customer_id int [ref: > customers.customer_id]
+  order_date date
+  status varchar
+}
+
+Table order_items {
+  order_item_id int [pk]
+  order_id int [ref: > orders.order_id]
+  product_id int [ref: > products.product_id]
+  quantity int
+  unit_price decimal
+}
+
+Table transactions {
+  transaction_id int [pk]
+  order_id int [ref: > orders.order_id]
+  transaction_date date
+  payment_method varchar
+  amount decimal
+}
