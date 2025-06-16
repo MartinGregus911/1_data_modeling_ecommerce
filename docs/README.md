@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ---
 
 ## Štruktúra
-
+```
 1_data_modeling_ecommerce/
 ├── faked_ecommerce_data/          # CSV súbory s generovanými dátami
 │   ├── categories.csv
@@ -45,7 +45,7 @@ pip install -r requirements.txt
 ├── run_all_task1.py               # master skript spúšťajúci všetky kroky v správnom poradí
 ├── run_build_star_schema.py       # samostatný skript na spustenie star schema SQL
 └── sql_schema.sql                 # SQL skript na vytvorenie relačných tabuliek
-
+```
 ## Komponenty riešenia
 
 ## 1. ER diagram
